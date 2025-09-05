@@ -1,5 +1,5 @@
 {
-  "name": "crypto-tracker",
+  "name": "@mrlemoos/crypto-tracker",
   "version": "0.1.0",
   "private": true,
   "scripts": {
