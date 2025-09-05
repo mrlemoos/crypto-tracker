@@ -5,24 +5,10 @@ import {
   CryptocurrenciesProvider,
 } from "$/context/cryptocurrencies-context";
 import { fetchCryptocurrencies } from "$/lib/cryptocurrencies";
-import type { Cryptocurrency, FiatCurrency } from "$/lib/schema";
 import type { JSX } from "react";
 
-namespace Page {
-  export interface Props {
-    searchParams: Promise<{
-      tracking?: Cryptocurrency[];
-      fiatVersus?: FiatCurrency;
-    }>;
-  }
-}
-
-export default async function Page({
-  searchParams,
-}: Page.Props): Promise<JSX.Element> {
+export default async function Page(): Promise<JSX.Element> {
   const data = await fetchCryptocurrencies();
-  const { tracking, fiatVersus } = await searchParams;
-
   return (
     <CryptocurrenciesProvider data={data as CryptocurrenciesContext.Value}>
       <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
